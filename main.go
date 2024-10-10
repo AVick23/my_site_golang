@@ -31,5 +31,5 @@ func main() {
 	})
 
 	// Запуск сервера на порту 8080
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe("0.0.0.0:8080", router)
 }
