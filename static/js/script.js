@@ -12,10 +12,10 @@ function revealSections() {
     });
 }
 
-// Добавляем обработчик событий для скролла
+
 window.addEventListener('scroll', revealSections);
 
-// Показ элементов при первой загрузке страницы
+
 window.addEventListener('load', revealSections);
 
 let currentIndex = 0;
@@ -24,17 +24,17 @@ function moveSlide(direction) {
     const cards = document.querySelectorAll('.gallery-card');
     const totalCards = cards.length;
 
-    // Обновление текущего индекса
+    
     currentIndex = (currentIndex + direction + totalCards) % totalCards;
 
-    // Обновление позиции слайдов
-    const offset = -currentIndex * (100 / 3); // Перемещение на 100%/3 для группы из 3 карточек
+    
+    const offset = -currentIndex * (100 / 3); 
     cards.forEach(card => {
         card.style.transform = `translateX(${offset}%)`;
     });
 }
 
-// Поддержка сенсорных событий для прокрутки
+
 let startX = 0;
 let isDragging = false;
 
@@ -49,9 +49,9 @@ galleryContainer.addEventListener('mouseup', (e) => {
     if (isDragging) {
         const endX = e.pageX;
         if (endX < startX - 50) {
-            moveSlide(1); // Перемещение вправо
+            moveSlide(1); 
         } else if (endX > startX + 50) {
-            moveSlide(-1); // Перемещение влево
+            moveSlide(-1); 
         }
         isDragging = false;
     }
@@ -70,9 +70,9 @@ galleryContainer.addEventListener('touchend', (e) => {
     if (isDragging) {
         const endX = e.changedTouches[0].pageX;
         if (endX < startX - 50) {
-            moveSlide(1); // Перемещение вправо
+            moveSlide(1); 
         } else if (endX > startX + 50) {
-            moveSlide(-1); // Перемещение влево
+            moveSlide(-1); 
         }
         isDragging = false;
     }
